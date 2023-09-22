@@ -3,8 +3,8 @@ import { AppModule } from './app.module';
 import { ValidationPipe } from '@nestjs/common';
 
 async function bootstrap() {
-  
   const app = await NestFactory.create(AppModule);
+  app.enableCors();
 
   //Usamos el pipe global para restringir la informacion exacta que espero recibir, si no la rechazo.
   app.useGlobalPipes(
