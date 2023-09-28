@@ -8,7 +8,9 @@ import { ConfigModule } from '@nestjs/config';
   imports: [
     AuthModule,
     ConfigModule.forRoot(), //Primero debe ir esto antes de llamar a la cadena de conexion
-    MongooseModule.forRoot( process.env.MONGO_URI ),
+    MongooseModule.forRoot( process.env.MONGO_URI, {
+      dbName: process.env.MONGO_DB_NAME,
+    }),
   ],
   controllers: [],
   providers: [],
